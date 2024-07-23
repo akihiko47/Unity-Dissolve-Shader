@@ -49,6 +49,8 @@ Shader "Custom/Dissolve"
         // Dissolve part
         _DissolveScale("Scale", Range(0.0, 1.0)) = 0.5
         _DissolveMap("Dissolve Map", 2D) = "white" {}
+        [HDR] _DissolveColor("Edge Color", Color) = (1.0, 1.0, 1.0, 1.0)
+        _DissolveEdgeWidth("Edge Width", Range(0.0, 0.15)) = 0.01
     }
 
         CGINCLUDE

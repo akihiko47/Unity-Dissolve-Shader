@@ -18,6 +18,8 @@
 // Dissolve part
 float _DissolveScale;
 sampler2D _DissolveMap;
+float4 _DissolveColor;
+float _DissolveEdgeWidth;
 
 
 //-------------------------------------------------------------------------------------
@@ -442,7 +444,8 @@ half4 fragForwardBaseInternal (VertexOutputForwardBase i)
     UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(i);
 
     // Dissolve part
-    float dissolve = saturate(tex2D(_DissolveMap, i.tex.xy).x);
+    float dissolve = clamp(tex2D(_DissolveMap, i.tex.xy).x, 0.01, 0.99);
+    float dissolveMask = dissolve > clamp(_DissolveScale + _DissolveEdgeWidth, 0.0, 1.0) * (_DissolveScale > 0.0);
     clip(dissolve - _DissolveScale);
 
     UnityLight mainLight = MainLight ();
@@ -457,7 +460,7 @@ half4 fragForwardBaseInternal (VertexOutputForwardBase i)
     UNITY_EXTRACT_FOG_FROM_EYE_VEC(i);
     UNITY_APPLY_FOG(_unity_fogCoord, c.rgb);
 
-    return OutputForward (c, s.alpha);
+    return OutputForward (c, s.alpha) * dissolveMask + _DissolveColor * (1 - dissolveMask);
 }
 
 half4 fragForwardBase (VertexOutputForwardBase i) : SV_Target   // backward compatibility (this used to be the fragment entry function)

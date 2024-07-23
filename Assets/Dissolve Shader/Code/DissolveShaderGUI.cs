@@ -37,6 +37,7 @@ namespace UnityEditor {
             public static GUIContent detailNormalMapText = EditorGUIUtility.TrTextContent("Normal Map", "Normal Map");
             // Dissolve part
             public static GUIContent dissolveMapText = EditorGUIUtility.TrTextContent("Noise Texture", "Noise Texture (R)");
+            public static GUIContent dissolveColor = EditorGUIUtility.TrTextContent("Color", "Edge (RGB)");
 
             public static string primaryMapsText = "Main Maps";
             public static string dissolveText = "Dissolve Options";
@@ -75,6 +76,8 @@ namespace UnityEditor {
         // Dissolve part
         MaterialProperty dissolveMap = null;
         MaterialProperty dissolveScale = null;
+        MaterialProperty dissolveColor = null;
+        MaterialProperty dissolveEdgeWidth = null;
 
         MaterialEditor m_MaterialEditor;
         WorkflowMode m_WorkflowMode = WorkflowMode.Specular;
@@ -120,6 +123,8 @@ namespace UnityEditor {
             // Dissolve Part
             dissolveMap = FindProperty("_DissolveMap", props);
             dissolveScale = FindProperty("_DissolveScale", props);
+            dissolveColor = FindProperty("_DissolveColor", props);
+            dissolveEdgeWidth = FindProperty("_DissolveEdgeWidth", props);
         }
 
         public override void OnGUI(MaterialEditor materialEditor, MaterialProperty[] props) {
@@ -224,6 +229,10 @@ namespace UnityEditor {
 
         void DoDissolveArea() {
             m_MaterialEditor.TexturePropertySingleLine(Styles.dissolveMapText, dissolveMap, dissolveMap.textureValue != null ? dissolveScale : null);
+            if (dissolveMap.textureValue != null) {
+                m_MaterialEditor.RangeProperty(dissolveEdgeWidth, "EdgeWidth");
+                m_MaterialEditor.ColorProperty(dissolveColor, "Edge Color");
+            }
         }
 
         void DoAlbedoArea(Material material) {
