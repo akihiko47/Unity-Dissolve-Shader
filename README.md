@@ -14,4 +14,6 @@ There are 2 ways:
 ## Noise 📷
 The shader works with noise textures. There are 7 textures in the `Noise Textures` folder, you can experiment with them. You can download more textures [here](https://opengameart.org/content/700-noise-textures).
 
+![sphere](https://github.com/akihiko47/Unity-Dissolve-Shader/blob/main/Images/sphere.gif)
+
 Thank you for reading this 😊!

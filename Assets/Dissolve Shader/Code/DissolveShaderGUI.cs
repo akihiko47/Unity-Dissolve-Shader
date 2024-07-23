@@ -230,7 +230,7 @@ namespace UnityEditor {
         void DoDissolveArea() {
             m_MaterialEditor.TexturePropertySingleLine(Styles.dissolveMapText, dissolveMap, dissolveMap.textureValue != null ? dissolveScale : null);
             if (dissolveMap.textureValue != null) {
-                m_MaterialEditor.RangeProperty(dissolveEdgeWidth, "EdgeWidth");
+                m_MaterialEditor.RangeProperty(dissolveEdgeWidth, "Edge Width");
                 m_MaterialEditor.ColorProperty(dissolveColor, "Edge Color");
             }
         }

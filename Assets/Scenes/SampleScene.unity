@@ -247,7 +247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!135 &476317562
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -289,7 +289,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3c1729fa5ac0e944287a3a52d1ab0441, type: 2}
+  - {fileID: 2100000, guid: 72b462050a6522444938d7c4f8f0677e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -327,13 +327,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 476317561}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.19031958, y: -0.30215716, z: 0.025111543}
+  m_LocalRotation: {x: 0.25987276, y: 0.089014456, z: 0.19898364, w: 0.9407168}
+  m_LocalPosition: {x: -0.19031958, y: -0.30215716, z: 1.5251116}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1837274254}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 26.969, y: 17.695, z: 28.162}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,8 +516,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20258288, y: -0.46792135, z: 0.11885517, w: 0.8519879}
-  m_LocalPosition: {x: 2.968827, y: 2.7580354, z: -1.9517126}
+  m_LocalRotation: {x: -0.32449034, y: 0.36720696, z: -0.14707093, w: -0.85920614}
+  m_LocalPosition: {x: 2.4020717, y: 3.6836264, z: -1.618232}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -669,6 +669,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: dd0b8e1d6819a1a42a8303197c7ddccf, type: 3}
       propertyPath: m_Name
       value: X Bot@Idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: dd0b8e1d6819a1a42a8303197c7ddccf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3853268898807207900, guid: dd0b8e1d6819a1a42a8303197c7ddccf, type: 3}
       propertyPath: m_Materials.Array.data[0]
